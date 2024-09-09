@@ -83,18 +83,12 @@
           }
 
 	  // Control background appearance
-	  const fb_start = 1
+	  const fb_start = 0
 	  const fb_end   = 2000
-	  if (window.scrollY < fb_start) {
-              firstBackground.style.opacity = 1;
-          } else if (window.scrollY > fb_end) {
-              firstBackground.style.opacity = 0;
-          } else {
-	      let scroll  = 1 - (window.scrollY - fb_start) / (fb_end - fb_start);
-              let opacity = 0.5 + 0.5*Math.tanh(scroll*2.5-1.25);
-              firstBackground.style.opacity = opacity;
-          }
-
+	  // let fb_scroll  = 3 - 3*(window.scrollY - fb_start) / (fb_end - fb_start);
+	  let fb_scroll  = (window.scrollY-fb_start)/(fb_end - fb_start);
+          let fb_opacity = 0.5 - 0.5*Math.tanh(fb_scroll*1-0.5);
+          firstBackground.style.opacity = fb_opacity;
       });
     </script>
   </body>
