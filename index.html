@@ -23,8 +23,8 @@
             left: 55%;
             width: 40%;
             height: auto;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            opacity: 0%;
+            transition: opacity 2.0s ease;
             z-index: 1000; /* Ensure it appears on top */
         }
 
@@ -58,7 +58,7 @@
         window.addEventListener('scroll', function() {
             // Show the overlay image when the user scrolls down 100px
             if (window.scrollY > 100) {
-                overlayImage.style.opacity = 1;
+                overlayImage.style.opacity = 0.3;
             } else {
                 overlayImage.style.opacity = 0;
             }
