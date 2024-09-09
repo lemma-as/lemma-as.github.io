@@ -27,7 +27,7 @@
           attachment: fixed; /* Keeps the background fixed in place */
 	  z-index: 100;
 	  /*transition: opacity 3.0s ease;*/
-       	  opacity: 100%;
+       	  /*opacity: 100%;*/
       }
 
       /* Style for the second image that will appear on scroll */
@@ -83,14 +83,16 @@
           }
 
 	  // Control background appearance
-	  const fb_start = 2000
-	  const fb_end   = 5000
+	  const fb_start = 1
+	  const fb_end   = 2000
 	  if (window.scrollY < fb_start) {
               firstBackground.style.opacity = 1;
           } else if (window.scrollY > fb_end) {
               firstBackground.style.opacity = 0;
           } else {
-              firstBackground.style.opacity = (fb_end - window.scrollY)/(fb_end-fb_start);
+	      let scroll  = 1 - (window.scrollY - fb_start) / (fb_end - fb_start);
+              let opacity = 0.5 + 0.5*Math.tanh(scroll*2.5-1.25);
+              firstBackground.style.opacity = opacity;
           }
 
       });
