@@ -6,20 +6,21 @@
     <style>
         /* Container for the background image */
         .background-container {
-            position: relative;
+            position: fixed;
             width: 100%;
             height: 100vh; /* Take up the full viewport height */
             background-image: url('img/logo_circ_ama_white_bg_lens_blr.png');
             background-size: cover; /* Ensure the image covers the entire container */
             background-position: center;
             background-attachment: fixed; /* Keeps the background fixed in place */
+	    z-index: 100;
         }
 
         /* Style for the second image that will appear on scroll */
         #overlay-image {
             position: fixed;
-            top: 80;
-            left: 53;
+            top: 75%;
+            left: 55%;
             width: 40%;
             height: auto;
             opacity: 0;
@@ -30,9 +31,11 @@
         /* Section below the first image to allow scrolling */
         .content {
             height: 2000px;
-            background-color: #f0f0f0;
+            background-color: transparent; /* Fully transparent background */
             padding: 50px;
             font-size: 24px;
+	    position: relative;
+	    z-index: 1;
         }
     </style>
 </head>
@@ -45,7 +48,6 @@
 
     <!-- Content to allow scrolling -->
     <div class="content">
-        ...
     </div>
 
     <script>
